@@ -15,6 +15,9 @@ function initializeApp() {
         // Initialize Navigation
         initNavigation();
         
+        // Initialize start quiz button
+        initStartQuizButton();
+        
         // Load page from URL if present
         loadFromURL();
         
@@ -25,6 +28,15 @@ function initializeApp() {
         
     } catch (error) {
         console.error('Error initializing app:', error);
+    }
+}
+
+function initStartQuizButton() {
+    const startBtn = document.getElementById('start-quiz-btn');
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            navigateToPage('grades');
+        });
     }
 }
 
