@@ -1,24 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>quiz-navigator-arabic</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختباراتي - English Language Quizzes</title>
+    <meta name="description" content="منصة تعليمية للاختبارات في اللغة الإنجليزية لجميع المراحل الدراسية">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- TailwindCSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body class="font-arabic">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold text-primary">اختباراتي</div>
+                <div class="flex items-center space-x-8 space-x-reverse">
+                    <div class="hidden md:flex space-x-8 space-x-reverse">
+                        <a href="#" class="nav-link active" data-page="home">الرئيسية</a>
+                        <a href="#" class="nav-link" data-page="grades">الاختبارات</a>
+                        <a href="#" class="nav-link" data-page="contact">تواصل معنا</a>
+                    </div>
+                    
+                    <div id="auth-container">
+                        <div class="animate-pulse">
+                            <div class="bg-gray-300 rounded-lg h-10 w-24"></div>
+                        </div>
+                    </div>
+                    
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 py-2 border-t bg-white">
+                <a href="#" class="nav-link mobile block py-2 px-4" data-page="home">الرئيسية</a>
+                <a href="#" class="nav-link mobile block py-2 px-4" data-page="grades">الاختبارات</a>
+                <a href="#" class="nav-link mobile block py-2 px-4" data-page="contact">تواصل معنا</a>
+            </div>
+        </div>
+    </nav>
 
-    <meta property="og:title" content="quiz-navigator-arabic" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Main Content -->
+    <main id="main-content" class="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
+        <!-- Home Page -->
+        <div id="home-page" class="page-content">
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl md:text-6xl font-bold text-primary mb-6">
+                        مرحباً بك في اختباراتي
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                        منصة تعليمية شاملة لاختبارات اللغة الإنجليزية لجميع المراحل الدراسية من الابتدائي إلى الثانوي
+                    </p>
+                    <button class="btn-primary text-xl px-8 py-4" onclick="navigateToPage('grades')">
+                        ابدأ الاختبار الآن
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </button>
+                </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+                <!-- Features -->
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon bg-blue-100 text-blue-600">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">12 مرحلة دراسية</h3>
+                        <p class="text-gray-600">من الصف الأول الابتدائي إلى الثالث الثانوي</p>
+                    </div>
+                    
+                    <div class="feature-card text-center">
+                        <div class="feature-icon bg-green-100 text-green-600">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">فصلين دراسيين</h3>
+                        <p class="text-gray-600">اختبارات الفصل الأول والثاني لكل مرحلة</p>
+                    </div>
+                    
+                    <div class="feature-card text-center">
+                        <div class="feature-icon bg-purple-100 text-purple-600">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">وحدات ودروس</h3>
+                        <p class="text-gray-600">تغطية شاملة لجميع الوحدات والدروس</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        <!-- Grades Selection Page -->
+        <div id="grades-page" class="page-content hidden">
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-primary mb-4">اختر المرحلة الدراسية</h1>
+                    <p class="text-lg text-gray-600">حدد الصف الدراسي لبدء الاختبار</p>
+                </div>
+
+                <!-- Grade Categories -->
+                <div class="space-y-12">
+                    <!-- Primary Grades -->
+                    <div class="grade-category">
+                        <h2 class="text-2xl font-bold text-center mb-8 text-blue-600">المرحلة الابتدائية</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-6" id="primary-grades"></div>
+                    </div>
+
+                    <!-- Preparatory Grades -->
+                    <div class="grade-category">
+                        <h2 class="text-2xl font-bold text-center mb-8 text-green-600">المرحلة الإعدادية</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="preparatory-grades"></div>
+                    </div>
+
+                    <!-- Secondary Grades -->
+                    <div class="grade-category">
+                        <h2 class="text-2xl font-bold text-center mb-8 text-purple-600">المرحلة الثانوية</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="secondary-grades"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terms Page -->
+        <div id="terms-page" class="page-content hidden">
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-primary mb-4">اختر الفصل الدراسي</h1>
+                    <div id="breadcrumb" class="text-lg text-gray-600 mb-6"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="terms-container"></div>
+            </div>
+        </div>
+
+        <!-- Units Page -->
+        <div id="units-page" class="page-content hidden">
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-primary mb-4">اختر الوحدة</h1>
+                    <div id="units-breadcrumb" class="text-lg text-gray-600 mb-6"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="units-container"></div>
+            </div>
+        </div>
+
+        <!-- Lessons Page -->
+        <div id="lessons-page" class="page-content hidden">
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-primary mb-4">اختر الدرس</h1>
+                    <div id="lessons-breadcrumb" class="text-lg text-gray-600 mb-6"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="lessons-container"></div>
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quiz-page" class="page-content hidden">
+            <div class="container mx-auto px-6 py-16">
+                <!-- Quiz content will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact-page" class="page-content hidden">
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-primary mb-4">تواصل معنا</h1>
+                    <p class="text-lg text-gray-600">نحن هنا لمساعدتك</p>
+                </div>
+                
+                <div class="max-w-2xl mx-auto">
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <form id="contact-form">
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">الاسم</label>
+                                <input type="text" class="form-input" required>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">البريد الإلكتروني</label>
+                                <input type="email" class="form-input" required>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">الرسالة</label>
+                                <textarea class="form-input h-32" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full">إرسال الرسالة</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script src="src/js/config.js"></script>
+    <script src="src/js/auth.js"></script>
+    <script src="src/js/navigation.js"></script>
+    <script src="src/js/grades.js"></script>
+    <script src="src/js/app.js"></script>
+</body>
 </html>

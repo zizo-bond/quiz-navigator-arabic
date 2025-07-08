@@ -1,0 +1,159 @@
+/* Custom CSS for Ikhtibaraty App */
+
+:root {
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --secondary: #8b5cf6;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+.font-arabic {
+    font-family: 'Cairo', sans-serif;
+}
+
+/* Navigation */
+.nav-link {
+    @apply text-gray-700 hover:text-blue-600 transition-colors px-3 py-2 rounded-lg;
+}
+
+.nav-link.active {
+    @apply text-blue-600 bg-blue-50;
+}
+
+/* Buttons */
+.btn-primary {
+    @apply bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold inline-flex items-center;
+}
+
+.btn-secondary {
+    @apply bg-gray-200 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-300 transition-all duration-300 font-semibold;
+}
+
+/* Cards */
+.feature-card {
+    @apply bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300;
+}
+
+.feature-icon {
+    @apply w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4;
+}
+
+.grade-card {
+    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-1;
+}
+
+.grade-card:hover {
+    @apply bg-blue-50;
+}
+
+.term-card {
+    @apply bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-1;
+}
+
+.unit-card {
+    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-1;
+}
+
+.lesson-card {
+    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-1;
+}
+
+/* Form Elements */
+.form-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+/* Page Content */
+.page-content {
+    @apply min-h-screen;
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+    .container {
+        @apply px-4;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Quiz Specific Styles */
+.quiz-container {
+    @apply bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-xl shadow-2xl p-6 max-w-4xl mx-auto;
+}
+
+.quiz-header {
+    @apply bg-purple-500 rounded-lg shadow-lg border border-purple-300 p-6 mb-8;
+}
+
+.question-card {
+    @apply bg-white text-gray-800 rounded-lg p-6 mb-6 shadow-lg;
+}
+
+.option-box {
+    @apply border-2 border-blue-500 rounded-lg p-4 bg-blue-100 hover:bg-blue-200 transition-colors cursor-pointer mb-3;
+}
+
+.option-box.selected {
+    @apply bg-blue-500 text-white;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    @apply text-lg text-gray-600 mb-6;
+}
+
+.breadcrumb span:not(:last-child)::after {
+    content: ' / ';
+    margin: 0 8px;
+}
+
+/* Loading */
+.loading {
+    @apply animate-pulse;
+}
+
+/* Arabic RTL Support */
+[dir="rtl"] .mr-2 {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+[dir="rtl"] .ml-2 {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+[dir="rtl"] .space-x-reverse > * + * {
+    margin-right: 2rem;
+    margin-left: 0;
+}
+
+[dir="rtl"] .space-x-8 > * + * {
+    margin-right: 2rem;
+    margin-left: 0;
+}
